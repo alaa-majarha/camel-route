@@ -6,15 +6,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class StartupRunner implements CommandLineRunner {
-    private final CamelConfig camelConfig;
 
-    public StartupRunner(CamelConfig camelConfig) {
-        this.camelConfig = camelConfig;
+
+    public StartupRunner() {
+
     }
 
     @Override
     public void run(String... args) {
-        camelConfig.setupRoutes();
+
         System.out.println("Application started!");
 
     }

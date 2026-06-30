@@ -1,28 +1,26 @@
 package com.camel.camelFile.Config;
 
-import com.camel.camelFile.routes.File;
-import org.apache.camel.CamelContext;
-import org.apache.camel.impl.DefaultCamelContext;
-import org.apache.camel.spi.PropertiesComponent;
-import org.springframework.stereotype.Component;
-
-@Component("CamelConfig")
+import jakarta.jms.ConnectionFactory;
+import org.apache.camel.component.jms.JmsComponent;
+import org.apache.qpid.jms.JmsConnectionFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+@Configuration
 public class CamelConfig {
-    public void setupRoutes() {
-        try(CamelContext context = new DefaultCamelContext()) {
-            context.addRoutes(new File());
 
-            PropertiesComponent propertiesComponent = context.getPropertiesComponent();
-            propertiesComponent.setLocation("classpath:application.properties");
-
-            context.start();
-
-            Thread.sleep(2000);
-
-            context.stop();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    @Bean
+    public ConnectionFactory connectionFactory() {
+        JmsConnectionFactory factory =
+                new JmsConnectionFactory("amqp://localhost:61616");
+        factory.setUsername("artemis");
+        factory.setPassword("artemis");
+        return factory;
     }
 
+    @Bean
+    public JmsComponent jmsComponent(ConnectionFactory connectionFactory) {
+        return JmsComponent.jmsComponentAutoAcknowledge(connectionFactory);
+    }
 }
+
+
