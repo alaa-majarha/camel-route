@@ -1,6 +1,5 @@
 package com.camel.camelFile;
 
-import com.camel.camelFile.Config.CamelConfig;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
