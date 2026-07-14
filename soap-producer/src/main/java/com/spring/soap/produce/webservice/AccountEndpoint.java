@@ -1,5 +1,7 @@
-package com.spring.soap.produce;
+package com.spring.soap.produce.webservice;
 
+import com.spring.soap.produce.GetAccountInfoRequest;
+import com.spring.soap.produce.GetAccountInfoResponse;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
