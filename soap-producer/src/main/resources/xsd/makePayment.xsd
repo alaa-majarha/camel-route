@@ -12,8 +12,8 @@
 
             <xs:sequence>
 
-                <xs:element name="payerAccount" type="xs:long"/>
-                <xs:element name="beneficiaryAccount" type="xs:long"/>
+                <xs:element name="payerAccount" type="xs:string"/>
+                <xs:element name="beneficiaryAccount" type="xs:string"/>
                 <xs:element name="amount" type="xs:long"/>
                 <xs:element name="bankShortName" type="xs:string"/>
 

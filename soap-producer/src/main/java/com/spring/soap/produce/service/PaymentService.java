@@ -4,6 +4,7 @@ import com.spring.soap.produce.MakePaymentRequest;
 import com.spring.soap.produce.MakePaymentResponse;
 import com.spring.soap.produce.usecase.OffusPayment;
 import com.spring.soap.produce.usecase.OnusPayment;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -11,6 +12,7 @@ import java.util.Objects;
 import static com.spring.soap.produce.Constant.BANK_SHORT_NAME;
 
 @Service
+@Transactional
 public class PaymentService {
 
     private final OnusPayment onusPayment;

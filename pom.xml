@@ -26,7 +26,6 @@
 
     <modules>
         <module>soap-producer</module>
-        <module>camel-file</module>
         <module>soap-consumer</module>
     </modules>
 
